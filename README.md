@@ -15,6 +15,12 @@ rails new myapp --database=postgresql
 cd myapp
 ```
 
+Create a Heroku app:
+
+```bash
+heroku create
+```
+
 Add the `x86_64-linux` and `ruby` platforms to `Gemfile.lock`.
 
 ```bash

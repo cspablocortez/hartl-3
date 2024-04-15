@@ -1,24 +1,36 @@
-# README
+# Sample App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App from Chapter 3 of Michael Hartl's [Rails
+Tutorial](https://www.railstutorial.org/book/static_pages)
 
-Things you may want to cover:
+## Notes
 
-* Ruby version
+Create a new Rails app:
 
-* System dependencies
+```bash
+rails new myapp --database=postgresql
+```
 
-* Configuration
+```bash
+cd myapp
+```
 
-* Database creation
+Add the `x86_64-linux` and `ruby` platforms to `Gemfile.lock`.
 
-* Database initialization
+```bash
+bundle lock --add-platform x86_64-linux --add-platform ruby
+```
 
-* How to run the test suite
+Create a local database:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bin/rails db:create
+```
 
-* Deployment instructions
+After removing default welcome page, create a `Procfile`. While deploying a
+Rails 7 app without a Procfile executes the following command, but Heroku
+[recommends](https://devcenter.heroku.com/articles/getting-started-with-rails7#create-a-procfile) explicitly declaring how to boot the server process.
 
-* ...
+```bash
+echo "web: bundle exec puma -C config/puma.rb" > Procfile
+```
